@@ -24,7 +24,7 @@ Configuration后面的status，这个用于设置log4j2自身内部的信息输�
         <property name="LOG_PATTERN" value="%d{HH:mm:ss.SSS} %highlight{%-2level} [%style{%t}{magenta}] [%style{%X{traceId}}{bright,blue}]  %C{1.}#%M(%L) : %style{%msg%n}{cyan}%style{%throwable}{red}" />
         <property name="LOG_PATTERN_SIMPLE" value="%d{mm:ss.SSS} %highlight{%-2level} [%style{%t}{magenta}] %C{1.} : %style{%msg%n}{cyan}%style{%throwable}{red}" />
         <!-- 定义日志存储的路径，不要配置相对路径 -->
-        <property name="FILE_NAME" value="SpringBootModel" />
+        <property name="FILE_NAME" value="TaskTest" />
         <property name="FILE_PATH" value="/home/achilles/Java/logs/${APP_NAME}" />
     </Properties>
 

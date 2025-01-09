@@ -10,7 +10,7 @@
         <relativePath/>
     </parent>
     <groupId>org.achilles</groupId>
-    <artifactId>SpringBootModel</artifactId>
+    <artifactId>TaskTest</artifactId>
     <version>1.0</version>
 
     <properties>
@@ -26,7 +26,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <finalName>SpringBootModel-1.0</finalName>
+                    <finalName>TaskTest-1.0</finalName>
                     <outputDirectory>D:\jar</outputDirectory>
                 </configuration>
             </plugin>
