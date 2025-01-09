@@ -15,12 +15,14 @@ public class RecordTask {
     @Autowired
     RestTemplate restTemplate;
 
-    @Scheduled(fixedRate = 13000)
+    @Scheduled(fixedRate = 7000)
     private void check() {
+
+        log.info("---------------------------------Start---------------------------------------------------");
 
         String result = restTemplate.getForObject("https://quickrecord.cn/record/common/check", String.class);
 
-        log.info(" result : {}", result);
+        log.info("{}", result);
 
     }
 }
