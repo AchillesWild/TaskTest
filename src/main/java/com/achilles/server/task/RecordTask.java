@@ -18,7 +18,7 @@ public class RecordTask {
     @Scheduled(fixedRate = 7000)
     private void check() {
 
-        log.info("---------------------------------Start---------------------------------------------------");
+        log.info("---------------------Start------------------------");
 
         String result = restTemplate.getForObject("https://quickrecord.cn/record/common/check", String.class);
 
