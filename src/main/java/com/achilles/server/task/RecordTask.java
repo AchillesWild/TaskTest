@@ -17,6 +17,12 @@ public class RecordTask {
     @Autowired
     RestTemplate restTemplate;
 
+    String host = "smtp.qq.com"; // QQ SMTP服务器地址
+    String port = "465";
+    String password = "xpvwbfeqmwqodjgd"; // QQ邮箱的授权码
+    String sender = "2236966280@qq.com";
+    String receiver = "AchillesWild@hotmail.com";
+
     @Scheduled(fixedRate = 3000)
     private void check() {
 
@@ -26,11 +32,6 @@ public class RecordTask {
         } catch (RestClientException e) {
             e.printStackTrace();
             log.error(e.getMessage());
-            String host = "smtp.qq.com"; // QQ SMTP服务器地址
-            String port = "465";
-            String password = "xpvwbfeqmwqodjgd"; // QQ邮箱的授权码
-            String sender = "2236966280@qq.com";
-            String receiver = "AchillesWild@hotmail.com";
             String subject = "check (java)";
             String text = "something wrong !";
             EmailUtil.send(host, port, sender, password, receiver, subject, text);
