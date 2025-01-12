@@ -28,8 +28,10 @@ public class RecordTask {
     private void check() {
 
         String result = null;
+        int length = 0;
         try {
             result = restTemplate.getForObject("https://quickrecord.cn/record/common/check", String.class);
+            length = result.length();
         } catch (RestClientException e) {
             e.printStackTrace();
             log.error(e.getMessage());
@@ -38,6 +40,7 @@ public class RecordTask {
             EmailUtil.send(host, port, sender, password, receiver, subject, text);
         }
 
+        log.info("length : {}", length);
         log.info("{}", result);
 
     }
