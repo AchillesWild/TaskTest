@@ -1,5 +1,6 @@
 package com.achilles.server.task;
 
+import com.achilles.tool.date.DateUtil;
 import com.achilles.tool.email.EmailUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,8 +33,8 @@ public class RecordTask {
         } catch (RestClientException e) {
             e.printStackTrace();
             log.error(e.getMessage());
-            String subject = "check (java)";
-            String text = "something wrong !";
+            String subject = "check_j";
+            String text = "something wrong ! (" + DateUtil.getCurrentStr(DateUtil.YYYY_MM_DD_HH_MM_SS_SSS) + ")";
             EmailUtil.send(host, port, sender, password, receiver, subject, text);
         }
 
