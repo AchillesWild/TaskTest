@@ -19,7 +19,7 @@ public class RecordTask {
 
     String host = "smtp.qq.com"; // QQ SMTP服务器地址
     String port = "465";
-    String password = "xpvwbfeqmwqodjgd"; // QQ邮箱的授权码
+    String password = "xpvwbfeqmwqodjgd";
     String sender = "2236966280@qq.com";
     String receiver = "AchillesWild@hotmail.com";
 
