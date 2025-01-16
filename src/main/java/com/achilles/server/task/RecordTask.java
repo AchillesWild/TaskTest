@@ -25,7 +25,7 @@ public class RecordTask {
     String sender = "2236966280@qq.com";
     String receiver = "AchillesWild@hotmail.com";
 
-    @Scheduled(fixedRate = 3000)
+    @Scheduled(fixedRate = 3333)
     private void check() {
 
         String result = null;
