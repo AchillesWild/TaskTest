@@ -2,6 +2,7 @@ package com.achilles.server.task;
 
 import com.achilles.tool.date.DateUtil;
 import com.achilles.tool.email.EmailUtil;
+import com.achilles.tool.generate.unique.GenerateRandomString;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -36,7 +37,8 @@ public class RecordTask {
             e.printStackTrace();
             log.error(e.getMessage());
             String subject = "check_j";
-            String text = "something wrong ! (" + DateUtil.getCurrentStr(DateUtil.YYYY_MM_DD_HH_MM_SS_SSS) + ")";
+            String str = GenerateRandomString.getRandomStr(9192);
+            String text = DateUtil.getCurrentStr(DateUtil.YYYY_MM_DD_HH_MM_SS_SSS) + " : " + str;
             EmailUtil.send(host, port, sender, password, receiver, subject, text);
         }
 
