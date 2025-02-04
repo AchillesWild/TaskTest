@@ -25,23 +25,30 @@ public class RecordTask {
     String sender = "2236966280@qq.com";
     String receiver = "AchillesWild@hotmail.com";
 
+    long lastSendTime = 0;
+
     @Scheduled(fixedRate = 3333)
     private void check() {
 
-        String result = null;
-        int length = 0;
+        String result;
+        int length;
         try {
             result = restTemplate.getForObject("https://quickrecord.cn/record/common/check", String.class);
             length = result.length();
         } catch (RestClientException e) {
             e.printStackTrace();
             log.error(e.getMessage());
+            long during = (System.currentTimeMillis() - lastSendTime) / 1000;
+            if (during <= 60) {
+                return;
+            }
+            lastSendTime = System.currentTimeMillis();
             String subject = "check_j";
             String str = GenerateRandomString.getRandomStr(9192);
             String text = DateUtil.getCurrentStr(DateUtil.YYYY_MM_DD_HH_MM_SS_SSS) + " : " + str;
             EmailUtil.send(host, port, sender, password, receiver, subject, text);
+            return;
         }
-
         log.info("length : {}", length);
         log.info("{}", result);
 
