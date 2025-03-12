@@ -39,7 +39,7 @@ public class RecordTask {
             e.printStackTrace();
             log.error(e.getMessage());
             long during = (System.currentTimeMillis() - lastSendTime) / 1000;
-            if (during <= 60) {
+            if (during <= 300) {
                 return;
             }
             lastSendTime = System.currentTimeMillis();
