@@ -5,6 +5,7 @@ import com.achilles.tool.email.EmailUtil;
 import com.achilles.tool.generate.unique.GenerateRandomString;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -18,6 +19,9 @@ public class RecordTask {
 
     @Autowired
     RestTemplate restTemplate;
+
+    @Value("${remote.url.prefix:}")
+    String remoteUrlPrefix;
 
     String host = "smtp.qq.com"; // QQ SMTP服务器地址
     String port = "465";
@@ -33,7 +37,7 @@ public class RecordTask {
         String result;
         int length;
         try {
-            result = restTemplate.getForObject("https://quickrecord.cn/record/common/check", String.class);
+            result = restTemplate.getForObject(remoteUrlPrefix + "/record/common/check", String.class);
             length = result.length();
         } catch (RestClientException e) {
             e.printStackTrace();
