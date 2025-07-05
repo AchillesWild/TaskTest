@@ -48,7 +48,7 @@ public class RecordTask {
             }
             lastSendTime = System.currentTimeMillis();
             String subject = "check_j";
-            String str = GenerateRandomString.getRandomStr(9192);
+            String str = GenerateRandomString.getRandomStr(32);
             String text = DateUtil.getCurrentStr(DateUtil.YYYY_MM_DD_HH_MM_SS_SSS) + " : " + str;
             EmailUtil.send(host, port, sender, password, receiver, subject, text);
             return;
