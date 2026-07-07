@@ -53,7 +53,7 @@ public class RecordTask {
             EmailUtil.send(host, port, sender, password, receiver, subject, text);
             return;
         }
-        log.info("length : {}", length);
+//        log.info("length : {}", length);
         log.info("{}", result);
 
     }
